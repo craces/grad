@@ -1,0 +1,47 @@
+<!doctype HTLM>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<title>Grad 0.1 beta</title>
+<script>
+function myFunction() {
+var kat_alfa = parseInt (document.getElementById("k_one").value);
+var kat_beta = parseInt (document.getElementById("k_two").value);
+var dlugosc_boku_a = parseInt (document.getElementById("dl_boku").value);
+
+var h = Math.sin(kat_beta);  //    a/sin(beta)
+var dlugosc_boku_b = (h/Math.tan(kat_alfa)); //     dl_podst=h/tg(alfa)
+var przekatna_podstawy = (Math.sqrt(Math.pow(dlugosc_boku_a,2)))+(Math.sqrt(Math.pow(dlugosc_boku_b,2))); //tutaj sie cos jebie
+//   pitagoras //  pierwiastek z((dlugosc_boku_a)^2+(dlugosc_boku_b)^2)
+
+var wynik = przekatna_podstawy;
+
+if(wynik<0){
+alert("blad");
+}
+else{
+document.getElementById("content").innerHTML=("Belka ma długość: "+wynik++ + " cm");
+}
+}
+</script>
+</head>
+<body>
+	<h1>Grad 0.1 beta™</h1>
+<form>
+	<div class="container">
+		<input class="pole" id="k_one" type="text" placeholder="Kąt nachylenia wiekszej ściany">
+	</div>
+	<div class="container">
+		<input class="pole" id="k_two" type="text" placeholder="Kąt nachylenia mniejszej ściany">
+	</div>
+	<div class="container">
+		<input class="pole" id="dl_boku" type="text" placeholder="Długość boku a">
+	</div>
+		<input class="container btn" id="butt" type="button" value="sprawdź" onclick="myFunction()">
+</form>
+	<p id="content"></p>
+	<img class="d d_one" src="dach1.png" />
+	<img class="d d_two" src="dach2.png" />
+</body>
+</html>
